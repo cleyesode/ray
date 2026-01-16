@@ -173,7 +173,10 @@ class TestVersions:
     def test_master_non_nightly(self):
         """Master branch without nightly schedule returns sha tags, not PR tags."""
         ctx = make_ctx(
-            branch="master", commit="abc123def456", rayci_schedule="", pull_request="123"
+            branch="master",
+            commit="abc123def456",
+            rayci_schedule="",
+            pull_request="123",
         )
         # Even with pull_request set, master branch should return sha tags
         assert ctx._versions() == ["abc123", "build123"]
